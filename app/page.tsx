@@ -56,9 +56,10 @@ function FeatureCard({
       className="block p-6 bg-white rounded-3xl shadow-md hover:shadow-lg transition-shadow border-2 border-pink-200 hover:border-pink-300"
       target={targetBlank ? "_blank" : undefined}
     >
-      <div className="text-4xl mb-2">{icon}</div>
-      <h4 className="text-xl font-semibold mb-2 text-pink-700">{title}</h4>
-      <p className="text-pink-600">{description}</p>
+      <div style={{ display: "flex"}}>
+        <div className="text-4xl mb-2">{icon}</div>
+        <h4 className="text-xl font-semibold mb-2 text-pink-700 mt-2">{title}</h4>
+      </div>
     </Link>
   );
 }

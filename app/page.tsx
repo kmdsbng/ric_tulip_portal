@@ -11,7 +11,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <FeatureCard
               title="オンライン投票"
-              href="/vote"
+              href="https://tulip-vote-asset-bucket.s3.ap-northeast-1.amazonaws.com/index.html"
               icon="🌷"
               targetBlank={false}
             />

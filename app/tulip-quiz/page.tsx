@@ -194,6 +194,7 @@ export default function TulipQuiz() {
                 onClick={quizEnded ? resetQuiz : handleNext}
                 disabled={!quizEnded && selectedAnswer === null}
                 className="w-full bg-rose-500 hover:bg-rose-600 py-1 text-sm"
+                variant="answer"
               >
                 {quizEnded ? "もう一度" : showResult ? "次へ" : "回答"}
               </Button>

@@ -6,6 +6,7 @@
   --foreground-rgb: 157, 23, 77;
   --background-start-rgb: 255, 241, 242;
   --background-end-rgb: 255, 228, 230;
+  --radius: 6px;
 }
 
 body {

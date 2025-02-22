@@ -7,6 +7,7 @@
   --background-start-rgb: 255, 241, 242;
   --background-end-rgb: 255, 228, 230;
   --radius: 6px;
+  --card: 0 0% 100%;
 }
 
 body {
@@ -28,4 +29,3 @@ body {
     @apply bg-background text-foreground;
   }
 }
-

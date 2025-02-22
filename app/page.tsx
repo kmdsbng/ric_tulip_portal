@@ -1,27 +1,11 @@
-import Image from "next/image";
 import Link from "next/link";
+import PortalHeader from "@/components/PortalHeader";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-pink-50">
       <main className="flex-grow">
-        <div className="relative h-32 overflow-hidden">
-          <Image
-            src="/tulip_back.jpeg?height=100&width=800"
-            alt="チューリップ画像"
-            layout="fill"
-            objectFit="cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-pink-300 bg-opacity-20 flex items-center justify-center">
-            <h2
-              className="text-white text-3xl sm:text-5xl font-bold text-center px-4"
-              style={{ color: "#bdffd8" }}
-            >
-              六甲アイランドチューリップ祭ポータル
-            </h2>
-          </div>
-        </div>
+        <PortalHeader />
 
         <div className="container mx-auto py-8 px-4">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">

@@ -11,38 +11,26 @@ import PortalHeader from "@/components/PortalHeader";
 
 const quizData = [
   {
-    question: "チューリップの原産地はどこですか？",
-    options: ["オランダ", "トルコ", "日本", "アメリカ"],
+    question: "チューリップの名前の由来はどれ？",
+    options: ["帽子", "ターバン", "風車", "王冠"],
     correctAnswer: 1,
   },
   {
-    question: "チューリップの花言葉は次のうちどれ？",
-    options: ["永遠の愛", "思いやり", "博愛", "完璧な恋"],
+    question: "オランダが世界で最も多くのチューリップを生産していますが、1年間に生産される球根の数はどのくらい？",
+    options: ["約1,000万個", "約1億個", "約10億個", "約100億個"],
     correctAnswer: 2,
   },
   {
-    question: "チューリップの球根を植える最適な季節は？",
-    options: ["春", "夏", "秋", "冬"],
-    correctAnswer: 2,
-  },
-  {
-    question: "チューリップの花が咲く一般的な時期は？",
-    options: ["1月〜2月", "3月〜5月", "6月〜8月", "9月〜11月"],
-    correctAnswer: 1,
-  },
-  {
-    question: "チューリップの名前の由来は何ですか？",
-    options: ["ギリシャ語で「美しい」", "ラテン語で「花」", "トルコ語で「ターバン」", "オランダ語で「チューリップ」"],
-    correctAnswer: 2,
+    question: "チューリップが正式に国花とされている国はどれでしょう？",
+    options: ["フランス", "オランダ", "エジプト", "トルコ"],
+    correctAnswer: 3,
   },
 ];
 
 const tulipImages = [
-  "/placeholder.svg?height=150&width=150",
-  "/placeholder.svg?height=150&width=150",
-  "/placeholder.svg?height=150&width=150",
-  "/placeholder.svg?height=150&width=150",
-  "/placeholder.svg?height=150&width=150",
+  "/q1.png?height=150&width=150",
+  "/q2.png?height=150&width=150",
+  "/q3.png?height=150&width=150",
 ];
 
 export default function TulipQuiz() {
@@ -169,7 +157,7 @@ export default function TulipQuiz() {
                     transition={{ duration: 0.5 }}
                     className="text-center"
                   >
-                    <h2 className="text-xl font-bold mb-2">クイズ終了！</h2>
+                    <h2 className="text-xl font-bold mb-2">結果発表！</h2>
                     <p className="text-lg font-semibold mb-2">
                       スコア: {score} / {quizData.length}
                     </p>
@@ -180,7 +168,7 @@ export default function TulipQuiz() {
                     </div>
                     <p className="mt-2 text-sm text-rose-600 font-semibold">
                       {score === quizData.length
-                        ? "完璧です！"
+                        ? "全問正解！クイズ受付で合言葉「あかしろきいろ」を伝えてください"
                         : score > quizData.length / 2
                           ? "素晴らしい！"
                           : "もう一度挑戦！"}

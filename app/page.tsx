@@ -1,10 +1,9 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-pink-50">
-
       <main className="flex-grow">
         <div className="relative h-32 overflow-hidden">
           <Image
@@ -15,7 +14,10 @@ export default function Home() {
             priority
           />
           <div className="absolute inset-0 bg-pink-300 bg-opacity-20 flex items-center justify-center">
-            <h2 className="text-white text-3xl sm:text-5xl font-bold text-center px-4" style={{color: "#bdffd8"}}>
+            <h2
+              className="text-white text-3xl sm:text-5xl font-bold text-center px-4"
+              style={{ color: "#bdffd8" }}
+            >
               六甲アイランドチューリップ祭ポータル
             </h2>
           </div>
@@ -33,7 +35,7 @@ export default function Home() {
             <FeatureCard
               title="チューリップクイズ"
               description=""
-              href="/quiz"
+              href="/tulip-quiz"
               icon="❓"
               targetBlank={false}
             />
@@ -47,9 +49,8 @@ export default function Home() {
           </div>
         </div>
       </main>
-
     </div>
-  )
+  );
 }
 
 function FeatureCard({
@@ -58,7 +59,13 @@ function FeatureCard({
   href,
   icon,
   targetBlank,
-}: { title: string; description: string; href: string; icon: string; targetBlank: boolean }) {
+}: {
+  title: string;
+  description: string;
+  href: string;
+  icon: string;
+  targetBlank: boolean;
+}) {
   return (
     <Link
       href={href}
@@ -69,5 +76,5 @@ function FeatureCard({
       <h4 className="text-xl font-semibold mb-2 text-pink-700">{title}</h4>
       <p className="text-pink-600">{description}</p>
     </Link>
-  )
+  );
 }

@@ -11,21 +11,18 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <FeatureCard
               title="オンライン投票"
-              description=""
               href="/vote"
               icon="🌷"
               targetBlank={false}
             />
             <FeatureCard
               title="チューリップクイズ"
-              description=""
               href="/tulip-quiz"
               icon="❓"
               targetBlank={false}
             />
             <FeatureCard
               title="花壇マップ"
-              description=""
               href="https://www.google.com/maps/d/u/1/edit?mid=1J3PZkv5GbfvCY6ZS2rSJn2nziIC-Cvw&usp=sharing"
               icon="🗺️"
               targetBlank={true}
@@ -39,13 +36,11 @@ export default function Home() {
 
 function FeatureCard({
   title,
-  description,
   href,
   icon,
   targetBlank,
 }: {
   title: string;
-  description: string;
   href: string;
   icon: string;
   targetBlank: boolean;

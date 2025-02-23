@@ -71,26 +71,30 @@ export default function VoteResult(): JSX.Element {
 
   return (
     <div className="min-h-screen flex flex-col bg-cover bg-center">
-      <main className="flex-grow flex flex-col items-center justify-center p-8">
+      <main className="flex-grow">
         <PortalHeader />
-        <h1 className="text-4xl font-bold mb-4">
-          投票結果
-        </h1>
-        <div className="mb-8">
-          <p className="text-lg">
-            現在の投票結果です！
-          </p>
-        </div>
-        <div className="grid grid-cols-3 gap-4">
-          {
-            sortedItems.map((item) => (
-              <Card key={item.tulip_code} className="bg-white rounded-lg shadow-md p-4">
-                <div className="text-center">
-                  <span className="font-bold">{getTulipName(item.tulip_code)}:</span> {item.vote_count} 票
-                </div>
-              </Card>
-            ))
-          }
+
+        <div className="flex-grow flex flex-col items-center justify-center p-8">
+          <h1 className="text-4xl font-bold mb-4">
+            投票結果
+          </h1>
+          <div className="mb-8">
+            <p className="text-lg">
+              現在の投票結果です！
+            </p>
+          </div>
+          <div className="grid grid-cols-3 gap-4">
+            {
+              sortedItems.map((item) => (
+                <Card key={item.tulip_code} className="bg-white rounded-lg shadow-md p-4">
+                  <div className="text-center">
+                    <span className="font-bold">{getTulipName(item.tulip_code)}:</span> {item.vote_count} 票
+                  </div>
+                </Card>
+              ))
+            }
+          </div>
+
         </div>
       </main>
     </div>

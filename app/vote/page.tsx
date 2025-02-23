@@ -9,11 +9,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Flower2, CheckCircle2, XCircle } from "lucide-react";
 import PortalHeader from "@/components/PortalHeader";
 import { Tulip, TULIPS } from "@/domain/tulip";
+import React from "react";
 
 const quizData = [
   {
-    question: "チューリップの名前の由来はどれ？",
-    options: ["帽子", "ターバン", "風車", "王冠"],
+    question: 'チューリップの名前の由来はどれ？',
+    options: ['帽子', 'ターバン', '風車', '王冠'],
     correctAnswer: 1,
   },
   {
@@ -93,6 +94,30 @@ export default function Vote() {
   const [quizEnded, setQuizEnded] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [hasVoted, setHasVoted] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          'https://fnrbegfgqf.execute-api.ap-northeast-1.amazonaws.com/voted',
+          {
+            mode: 'cors',
+            credentials: 'omit',
+          }
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const json_data = await response.json();
+        const voted = json_data.result === 'voted';
+        setHasVoted(voted);
+      } catch (error) {
+        alert('エラーが発生しました');
+      }
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
     setProgress((currentQuestion / quizData.length) * 100);
@@ -198,41 +223,45 @@ export default function Vote() {
             </p>
           </div>
 
-        <div className="grid grid-cols-3 gap-4">
-          {TULIPS.map((tulip) => (
-            <div key={tulip.key} className="bg-white rounded-lg shadow-md p-4">
-              <a
-                href="#"
-                onClick={async (e) => {
-                  e.preventDefault();
-                  try {
-                    const response = await fetch(
-                      'https://fnrbegfgqf.execute-api.ap-northeast-1.amazonaws.com/save_vote',
-                      {
-                        method: 'POST',
-                        mode: 'cors',
-                        headers: {
-                          'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ tulip_code: tulip.key }),
+        {!hasVoted ? (
+          <div className="grid grid-cols-3 gap-4">
+            {TULIPS.map((tulip) => (
+              <div key={tulip.key} className="bg-white rounded-lg shadow-md p-4">
+                <a
+                  href="#"
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    try {
+                      const response = await fetch(
+                        'https://fnrbegfgqf.execute-api.ap-northeast-1.amazonaws.com/save_vote',
+                        {
+                          method: 'POST',
+                          mode: 'cors',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify({ tulip_code: tulip.key }),
+                        }
+                      );
+                      if (response.ok) {
+                        window.location.href = '/vote_complete.html';
+                      } else {
+                        alert('エラーが発生しました');
                       }
-                    );
-                    if (response.ok) {
-                      window.location.href = '/vote-result';
-                    } else {
+                    } catch (error) {
                       alert('エラーが発生しました');
                     }
-                  } catch (error) {
-                    alert('エラーが発生しました');
-                  }
-                }}
-                className="block text-center p-2 bg-pink-100 hover:bg-pink-200 rounded-md text-blue-500 hover:underline"
-              >
-                {tulip.name}
-              </a>
-            </div>
-          ))}
-        </div>
+                  }}
+                  className="block text-center p-2 bg-pink-100 hover:bg-pink-200 rounded-md text-blue-500 hover:underline"
+                >
+                  {tulip.name}
+                </a>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div>投票済みです。</div>
+        )}
 
         </div>
 

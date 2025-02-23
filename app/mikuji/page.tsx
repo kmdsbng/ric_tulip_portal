@@ -64,10 +64,10 @@ export default function VoteResult(): JSX.Element {
         <PortalHeader />
 
         <div className="flex-grow flex flex-col items-center justify-center p-8">
-          <h1 className="text-4xl font-bold mb-4">
+          <h1 className="text-2xl font-bold mb-2">
             チューリップみくじ
           </h1>
-          <div className="mb-8">
+          <div className="mb-6">
             <p className="text-lg">
               スクショを撮ってください
             </p>
@@ -77,8 +77,8 @@ export default function VoteResult(): JSX.Element {
               <Image
                 src={`/mikuji/${mikujiItems[currentImageIndex].img}`}
                 alt="Rotating Tulip"
-                width={200}
-                height={200}
+                width={150}
+                height={150}
                 className="object-cover rounded-lg shadow-md"
               />
               <div className="pt-2 text-lg">

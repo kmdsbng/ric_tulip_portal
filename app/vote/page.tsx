@@ -89,7 +89,8 @@ export default function Vote() {
                       e.preventDefault();
                       try {
                         const formData = new FormData();
-                        formData.append('tulip_code', tulip.key);
+                        // formData.append('tulip_code', tulip.key);
+                        formData.append(JSON.stringify({ tulip_code: tulip.key }), '');
 
                         const response = await fetch(
                           'https://fnrbegfgqf.execute-api.ap-northeast-1.amazonaws.com/save_vote',

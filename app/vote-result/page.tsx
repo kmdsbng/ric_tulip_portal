@@ -27,7 +27,7 @@ export default function VoteResult(): JSX.Element {
   const [error, setError] = useState<string | null>(null);
 
 
-  const sortedItems = voteCounts.items.sort((a, b) => b.vote_count - a.vote_count);
+  const sortedItems = voteCounts.items.slice().sort((a, b) => b.vote_count - a.vote_count);
 
   useEffect(() => {
     const fetchData = async () => {

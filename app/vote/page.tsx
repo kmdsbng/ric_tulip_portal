@@ -42,9 +42,9 @@ export default function Vote() {
       }
     };
     fetchData();
-  }, []);TULIPS
+  }, []);
 
-  const sortedTulips = TULIPS.sort((a, b) => {
+  const sortedTulips = TULIPS.slice().sort((a, b) => {
     if (a.name < b.name) {
       return -1;
     }
@@ -81,7 +81,7 @@ export default function Vote() {
             </div>
 
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {TULIPS.map((tulip) => (
+              {sortedTulips.map((tulip) => (
                 <div key={tulip.key} className="bg-white rounded-lg shadow-md p-4">
                   <a
                     href="#"

@@ -28,6 +28,7 @@ export default function VoteResult(): JSX.Element {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data: VoteCounts = await response.json();
+        console.log('fetched', data);
         setVoteCounts(data);
       } catch (e: any) {
         if (e instanceof Error) {

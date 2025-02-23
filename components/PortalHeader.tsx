@@ -12,7 +12,7 @@ export default function PortalHeader() {
         style={{ objectFit: "cover" }}
       />
       <div className="absolute inset-0 bg-pink-300 bg-opacity-20 flex items-center justify-center">
-        <Link href="/">
+        <Link href="/" className="underline" style={{ color: "#c1c2ff" }}>
           <h2
             className="text-white text-3xl sm:text-5xl font-bold text-center px-4"
             style={{ color: "#bdffd8" }}

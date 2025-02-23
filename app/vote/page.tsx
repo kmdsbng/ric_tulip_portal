@@ -95,9 +95,12 @@ export default function Vote() {
                         alert('エラーが発生しました');
                       }
                     }}
-                    className="block text-center p-2 bg-pink-100 hover:bg-pink-200 rounded-md text-blue-500 hover:underline"
+                    className="block flex text-center p-2 bg-pink-100 hover:bg-pink-200 rounded-md text-blue-500 hover:underline"
                   >
-                    {tulip.name}
+                    <img src={`/tulip_photo/${tulip.key}100.jpg`} alt={tulip.name} className="w-10 h-10 object-cover rounded-lg shadow-md" />
+                    <div className="pt-2">
+                      {tulip.name}
+                    </div>
                   </a>
                 </div>
               ))}

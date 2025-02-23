@@ -38,9 +38,7 @@ export default function VoteResult(): JSX.Element {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data: VoteCounts = await response.json();
-        console.log('fetched', data);
         setVoteCounts(data);
-        console.log('2');
       } catch (e: any) {
         if (e instanceof Error) {
           setError(e.message);
@@ -55,19 +53,13 @@ export default function VoteResult(): JSX.Element {
     fetchData();
   }, []);
 
-  console.log('3');
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
-  console.log('4');
-
   if (error) {
     return <div>Error: {error}</div>;
   }
-
-  console.log('5');
 
   return (
     <div className="min-h-screen flex flex-col bg-cover bg-center">
@@ -80,7 +72,7 @@ export default function VoteResult(): JSX.Element {
           </h1>
           <div className="mb-8">
             <p className="text-lg">
-              現在の投票結果です！
+              投票ありがとうございました！現在の投票結果です！
             </p>
           </div>
           <div className="grid grid-cols-3 gap-4">

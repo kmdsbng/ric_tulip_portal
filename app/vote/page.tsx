@@ -198,13 +198,41 @@ export default function Vote() {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
-            {TULIPS.map((tulip) => (
-              <div key={tulip.key} className="bg-white rounded-lg shadow-md p-4">
-                <a href={`/tulip_detail.html?tulip_code=${tulip.key}`} className="block text-center p-2 bg-pink-100 hover:bg-pink-200 rounded-md text-blue-500 hover:underline">{tulip.name}</a>
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-3 gap-4">
+          {TULIPS.map((tulip) => (
+            <div key={tulip.key} className="bg-white rounded-lg shadow-md p-4">
+              <a
+                href="#"
+                onClick={async (e) => {
+                  e.preventDefault();
+                  try {
+                    const response = await fetch(
+                      'https://fnrbegfgqf.execute-api.ap-northeast-1.amazonaws.com/save_vote',
+                      {
+                        method: 'POST',
+                        mode: 'cors',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ tulip_code: tulip.key }),
+                      }
+                    );
+                    if (response.ok) {
+                      window.location.href = '/vote-result';
+                    } else {
+                      alert('エラーが発生しました');
+                    }
+                  } catch (error) {
+                    alert('エラーが発生しました');
+                  }
+                }}
+                className="block text-center p-2 bg-pink-100 hover:bg-pink-200 rounded-md text-blue-500 hover:underline"
+              >
+                {tulip.name}
+              </a>
+            </div>
+          ))}
+        </div>
 
         </div>
 

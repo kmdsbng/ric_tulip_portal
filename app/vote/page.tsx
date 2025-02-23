@@ -42,7 +42,20 @@ export default function Vote() {
       }
     };
     fetchData();
-  }, []);
+  }, []);TULIPS
+
+  const sortedTulips = TULIPS.sort((a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+
+  });
+
 
   return (
     <div className="min-h-screen flex flex-col bg-cover bg-center">
@@ -67,7 +80,7 @@ export default function Vote() {
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {TULIPS.map((tulip) => (
                 <div key={tulip.key} className="bg-white rounded-lg shadow-md p-4">
                   <a
@@ -95,7 +108,7 @@ export default function Vote() {
                         alert('エラーが発生しました');
                       }
                     }}
-                    className="block flex text-center p-2 bg-pink-100 hover:bg-pink-200 rounded-md text-blue-500 hover:underline"
+                    className="block flex flex-col items-center text-center p-2 bg-pink-100 hover:bg-pink-200 rounded-md text-blue-500 hover:underline"
                   >
                     <img src={`/tulip_photo/${tulip.key}100.jpg`} alt={tulip.name} className="w-10 h-10 object-cover rounded-lg shadow-md" />
                     <div className="pt-2">
@@ -121,8 +134,6 @@ export default function Vote() {
         )}
 
         </div>
-
-
 
       </main>
     </div>

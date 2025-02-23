@@ -10,14 +10,23 @@ import { Flower2, CheckCircle2, XCircle } from "lucide-react";
 import PortalHeader from "@/components/PortalHeader";
 import React from "react";
 
+interface VoteCountItem {
+  tulip_code: string;
+  vote_count: number;
+}
+
 interface VoteCounts {
-  [tulipName: string]: number;
+  total: number;
+  items: VoteCountItem[];
 }
 
 export default function VoteResult(): JSX.Element {
-  const [voteCounts, setVoteCounts] = useState<VoteCounts>({});
+  const [voteCounts, setVoteCounts] = useState<VoteCounts>({total: 0, items: []});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+
+  const sortedItems = voteCounts.items.sort((a, b) => b.vote_count - a.vote_count);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,13 +81,15 @@ export default function VoteResult(): JSX.Element {
           </p>
         </div>
         <div className="grid grid-cols-3 gap-4">
-          {Object.entries(voteCounts).map(([tulipName, count]) => (
-            <div key={tulipName} className="bg-white rounded-lg shadow-md p-4">
-              <div className="text-center">
-                <span className="font-bold">{tulipName}:</span> {count} 票
-              </div>
-            </div>
-          ))}
+          {
+            sortedItems.map((item) => (
+              <Card key={item.tulip_code} className="bg-white rounded-lg shadow-md p-4">
+                <div className="text-center">
+                  <span className="font-bold">{item.tulip_code}:</span> {item.vote_count} 票
+                </div>
+              </Card>
+            ))
+          }
         </div>
       </main>
     </div>

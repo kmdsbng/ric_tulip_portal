@@ -2,6 +2,11 @@ import Link from "next/link";
 import PortalHeader from "@/components/PortalHeader";
 
 export default function Home() {
+
+  // href="https://tulip-vote-asset-bucket.s3.ap-northeast-1.amazonaws.com/index.html"
+
+
+
   return (
     <div className="min-h-screen flex flex-col bg-pink-50">
       <main className="flex-grow">
@@ -11,7 +16,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <FeatureCard
               title="オンライン投票"
-              href="https://tulip-vote-asset-bucket.s3.ap-northeast-1.amazonaws.com/index.html"
+              href="/vote"
               icon="🌷"
               targetBlank={false}
             />

@@ -62,6 +62,18 @@ export default function VoteResult(): JSX.Element {
     <div className="min-h-screen flex flex-col bg-cover bg-center">
       <main className="flex-grow">
         <PortalHeader />
+        <div>
+          {
+            mikujiItems.map((src, index) => (
+              <img
+                key={index}
+                src={`/mikuji/${src.img}`}
+                className="inline"
+                style={{width: "1px", height: "1px"}}
+              />
+            ))
+          }
+        </div>
 
         <div className="flex-grow flex flex-col items-center justify-center p-8">
           <h1 className="text-2xl font-bold mb-2">

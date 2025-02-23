@@ -30,6 +30,7 @@ export default function VoteResult(): JSX.Element {
         const data: VoteCounts = await response.json();
         console.log('fetched', data);
         setVoteCounts(data);
+        console.log('2');
       } catch (e: any) {
         if (e instanceof Error) {
           setError(e.message);
@@ -44,13 +45,19 @@ export default function VoteResult(): JSX.Element {
     fetchData();
   }, []);
 
+  console.log('3');
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
+  console.log('4');
+
   if (error) {
     return <div>Error: {error}</div>;
   }
+
+  console.log('5');
 
   return (
     <div className="min-h-screen flex flex-col bg-cover bg-center">

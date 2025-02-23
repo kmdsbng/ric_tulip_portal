@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Flower2, CheckCircle2, XCircle } from "lucide-react";
 import PortalHeader from "@/components/PortalHeader";
 import React from "react";
+import { getTulipName } from "@/domain/tulip";
 
 interface VoteCountItem {
   tulip_code: string;
@@ -72,10 +73,10 @@ export default function VoteResult(): JSX.Element {
     <div className="min-h-screen flex flex-col bg-cover bg-center">
       <main className="flex-grow flex flex-col items-center justify-center p-8">
         <PortalHeader />
-        <h1 className="text-4xl font-bold text-white mb-4">
+        <h1 className="text-4xl font-bold mb-4">
           投票結果
         </h1>
-        <div className="text-white mb-8">
+        <div className="mb-8">
           <p className="text-lg">
             現在の投票結果です！
           </p>
@@ -85,7 +86,7 @@ export default function VoteResult(): JSX.Element {
             sortedItems.map((item) => (
               <Card key={item.tulip_code} className="bg-white rounded-lg shadow-md p-4">
                 <div className="text-center">
-                  <span className="font-bold">{item.tulip_code}:</span> {item.vote_count} 票
+                  <span className="font-bold">{getTulipName(item.tulip_code)}:</span> {item.vote_count} 票
                 </div>
               </Card>
             ))

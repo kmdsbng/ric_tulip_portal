@@ -47,20 +47,12 @@ const mikujiItems = [
     name: "ファッショニスタ",
   },
   {
-    img: "border.jpg",
-    name: "ストライプ吉",
-  },
-  {
     img: "boru.jpg",
     name: "中吉",
   },
   {
     img: "yusyo.jpg",
     name: "優勝",
-  },
-  {
-    img: "c2.jpg",
-    name: "C吉",
   },
   {
     img: "inthadoor.jpg",
@@ -103,10 +95,6 @@ const mikujiItems = [
     name: "電柱┃ハート🩷カプ吉",
   },
   {
-    img: "royal100.jpg",
-    name: "ロイヤル吉",
-  },
-  {
     img: "world100.jpg",
     name: "ラブアンドピース吉",
   },
@@ -127,24 +115,12 @@ const mikujiItems = [
     name: "ライトアップ六甲ライナー吉",
   },
   {
-    img: "c.jpg",
-    name: "C吉",
-  },
-  {
     img: "magipan.jpg",
     name: "マジッ吉",
   },
   {
-    img: "clear_water100.jpg",
-    name: "白吉",
-  },
-  {
     img: "prince100.jpg",
     name: "プリンス吉",
-  },
-  {
-    img: "momotaro.jpg",
-    name: "モモタロウ吉",
   },
   {
     img: "nanohana.jpg",
@@ -157,10 +133,6 @@ const mikujiItems = [
   {
     img: "red.jpg",
     name: "大吉",
-  },
-  {
-    img: "river.jpg",
-    name: "リバーモール吉",
   },
   {
     img: "orange_vandyke100.jpg",
@@ -219,7 +191,7 @@ export default function VoteResult(): JSX.Element {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % mikujiItems.length);
-    }, 200);
+    }, 400);
 
     return () => clearInterval(intervalId);
   }, []);

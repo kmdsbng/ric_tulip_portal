@@ -71,10 +71,6 @@ const mikujiItems = [
     name: "無敵",
   },
   {
-    img: "izumi100.jpg",
-    name: "スプリング吉",
-  },
-  {
     img: "e.jpg",
     name: "E吉",
   },
@@ -89,10 +85,6 @@ const mikujiItems = [
   {
     img: "heart.jpg",
     name: "いっぱいちゅき♡吉",
-  },
-  {
-    img: "heart2.jpg",
-    name: "電柱┃ハート🩷カプ吉",
   },
   {
     img: "world100.jpg",
@@ -157,10 +149,6 @@ const mikujiItems = [
   {
     img: "negurije100.jpg",
     name: "ちょっとだけ吉",
-  },
-  {
-    img: "apricot_impression100.jpg",
-    name: "インプレッションーーカミングーー吉",
   },
   {
     img: "fox.jpg",

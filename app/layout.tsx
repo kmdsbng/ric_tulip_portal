@@ -6,9 +6,9 @@ import type React from "react"
 const quicksand = Quicksand({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "六甲アイランドチューリップ祭",
+  title: "六甲アイランドチューリップ祭ポータルサイト",
   description:
-    "六甲アイランドで開催される美しいチューリップ祭りの公式サイトです。オンライン投票、クイズ、花壇マップをお楽しみください。",
+    "六甲アイランドでチューリップ祭来場者向けサイトです。チューリップみくじ、オンライン投票、クイズ、花壇マップが利用できます。",
 }
 
 export default function RootLayout({

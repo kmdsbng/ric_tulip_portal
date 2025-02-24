@@ -80,17 +80,14 @@ export default function Vote() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {sortedTulips.map((tulip) => (
-                <div key={tulip.key} className="bg-white rounded-lg shadow-md p-4">
+                <div key={tulip.key} className="bg-white rounded-lg shadow-md p-1">
                   <a
                     href="#"
                     onClick={async (e) => {
                       e.preventDefault();
                       try {
-                        // const formData = new FormData();
-                        // // formData.append('tulip_code', tulip.key);
-                        // formData.append(JSON.stringify({ tulip_code: tulip.key }), '');
 
                         const response = await fetch(
                           'https://fnrbegfgqf.execute-api.ap-northeast-1.amazonaws.com/save_vote2',
@@ -101,7 +98,6 @@ export default function Vote() {
                               'Content-Type': 'application/json',
                             },
                             body: JSON.stringify({ tulip_code: tulip.key }),
-                            // body: formData,
                           }
                         );
                         if (response.ok) {
@@ -113,7 +109,7 @@ export default function Vote() {
                         alert('エラーが発生しました');
                       }
                     }}
-                    className="block flex flex-col items-center text-center p-2 bg-pink-100 hover:bg-pink-200 rounded-md text-blue-500 hover:underline"
+                    className="block flex flex-col items-center text-center p-1 bg-pink-100 hover:bg-pink-200 rounded-md text-blue-500 hover:underline"
                   >
                     <img src={`/tulip_photo/${tulip.key}100.jpg`} alt={tulip.name} className="w-10 h-10 object-cover rounded-lg shadow-md" />
                     <div className="pt-2">

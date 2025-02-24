@@ -75,9 +75,9 @@ export default function VoteResult(): JSX.Element {
               投票ありがとうございました！現在の投票結果です！
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {sortedItems.map((item) => (
-              <Card key={item.tulip_code} className="bg-white rounded-lg shadow-md p-4">
+              <Card key={item.tulip_code} className="bg-white rounded-lg shadow-md p-1">
                 <div className="text-center flex flex-col items-center">
                   <img
                     src={`/tulip_photo/${item.tulip_code}100.jpg`}

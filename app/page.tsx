@@ -15,6 +15,12 @@ export default function Home() {
         <div className="container mx-auto py-8 px-4">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <FeatureCard
+              title="チューリップみくじ"
+              href="/mikuji"
+              icon="🥠"
+              targetBlank={false}
+            />
+            <FeatureCard
               title="オンライン投票"
               href="/vote"
               icon="🌷"
@@ -24,12 +30,6 @@ export default function Home() {
               title="チューリップクイズ"
               href="/tulip-quiz"
               icon="❓"
-              targetBlank={false}
-            />
-            <FeatureCard
-              title="チューリップみくじ"
-              href="/mikuji"
-              icon="🥠"
               targetBlank={false}
             />
             <FeatureCard

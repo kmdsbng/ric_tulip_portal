@@ -214,7 +214,7 @@ export default function VoteResult(): JSX.Element {
           </div>
           <div className="">
             <div className="text-center flex flex-col items-center">
-              <Image
+              <img
                 src={`/mikuji/${mikujiItems[currentImageIndex].img}`}
                 alt="Rotating Tulip"
                 width={150}

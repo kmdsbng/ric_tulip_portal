@@ -47,7 +47,21 @@ export const TULIPS: Tulip[] = [
   new Tulip('raribera', 'ラリベラ'),
   new Tulip('aquarel', 'アクアレル'),
   new Tulip('happy_upstar', 'ハッピーアップスター'),
-  new Tulip('menfis', 'メンフィス')
+  new Tulip('menfis', 'メンフィス'),
+  new Tulip('yosemite100.jpg', 'ヨセミテ'),
+  new Tulip('sisi', 'シシー'),
+  new Tulip('pinkstar', 'ピンクスター'),
+  new Tulip('nordainde', 'ノルドアインデ'),
+  new Tulip('nemofira', 'ネモフィラ'),
+  new Tulip('mounttakoma', 'マウントタコマ'),
+  new Tulip('miranda', 'ミランダ'),
+  new Tulip('housetenbos', 'ハウステンボス'),
+  new Tulip('endurance', 'エンデュランス'),
+  new Tulip('deltagraphity', 'デルタグラフィティ'),
+  new Tulip('bluespectacle', 'ブルースペクタクル'),
+  new Tulip('bluediamond', 'ブルーダイアモンド'),
+  new Tulip('biglove', 'ビッグラブ'),
+  new Tulip('arugarube', 'アルガルベ'),
 ] as const;
 
 const TULIP_MAP = new Map(TULIPS.map((tulip) => [tulip.key, tulip]));

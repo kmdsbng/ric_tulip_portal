@@ -162,6 +162,10 @@ const mikujiItems = [
     img: "yuri2.jpg",
     name: "フラッシュ！！吉",
   },
+  {
+    img: "usami100.jpg",
+    name: "宇佐吉",
+  },
 ] as const;
 
 export default function VoteResult(): JSX.Element {

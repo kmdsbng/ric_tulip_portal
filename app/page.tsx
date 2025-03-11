@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PortalHeader from "@/components/PortalHeader";
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
 

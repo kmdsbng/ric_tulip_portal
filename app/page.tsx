@@ -39,6 +39,12 @@ export default function Home() {
               icon="🗺️"
               targetBlank={true}
             />
+            <FeatureCard
+              title="協賛団体店舗マップ"
+              href="/kyosan"
+              icon="🛍️"
+              targetBlank={false}
+            />
           </div>
         </div>
       </main>

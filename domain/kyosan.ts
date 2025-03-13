@@ -32,7 +32,7 @@ export const kyosans: Kyosan[] = [
   },
   {
     id: "usami",
-    name: "宇佐美",
+    name: "apollostation 神戸六甲アイランドSS／㈱西日本宇佐美",
     address: "兵庫県神戸市",
   },
 ];

@@ -10,7 +10,7 @@ const BaggysCafePage = () => {
 
         <div className="flex-grow flex flex-col items-center justify-center">
           <Link href="/kyosan" className="underline">↩協賛一覧へ</Link>
-          <h1 className="text-2xl font-bold mb-2 mt-2">Baggy's Cafe</h1>
+          <h1 className="text-2xl font-bold mb-2 mt-2">Baggy&apos;s Cafe</h1>
           <p>兵庫県神戸市中央区</p>
           {/* マップを表示するコンポーネントを追加 */}
         </div>

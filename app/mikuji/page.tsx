@@ -108,7 +108,7 @@ const mikujiItems = [
   },
   {
     img: "magipan.jpg",
-    name: "マジッ吉",
+    name: "マジック吉",
   },
   {
     img: "prince100.jpg",

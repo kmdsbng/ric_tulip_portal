@@ -107,8 +107,8 @@ export default function VoteResult(): JSX.Element {
               <img
                 src={`/mikuji/${mikujiItems[currentImageIndex].img}`}
                 alt="Rotating Tulip"
-                width={450}
-                height={450}
+                width={420}
+                height={420}
                 className="object-cover rounded-lg shadow-md"
               />
               <div className="pt-2 text-lg">
@@ -122,9 +122,9 @@ export default function VoteResult(): JSX.Element {
           <div className="mt-6">
             {
               omikujiStarted ? (
-                <Button className="rounded-full bg-red-500 text-white font-bold py-3 px-6 text-lg hover:bg-red-500" style={{fontSize: '1.5em', borderRadius: '9999px', height: '80px'}} onClick={handleStop}>ストップ</Button>
+                <Button className="rounded-full bg-red-500 text-white font-bold py-3 px-6 text-lg hover:bg-red-500" style={{fontSize: '2.5em', borderRadius: '9999px', height: '120px'}} onClick={handleStop}>ストップ</Button>
               ) : (
-                <Button className="rounded-full bg-green-500 text-white font-bold py-3 px-6 text-lg hover:bg-green-500" style={{fontSize: '1.5em', borderRadius: '9999px', height: '80px'}} onClick={handleStart}>スタート</Button>
+                <Button className="rounded-full bg-green-500 text-white font-bold py-3 px-6 text-lg hover:bg-green-500" style={{fontSize: '2.5em', borderRadius: '9999px', height: '120px'}} onClick={handleStart}>スタート</Button>
               )
             }
           </div>

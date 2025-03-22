@@ -98,28 +98,33 @@ export default function VoteResult(): JSX.Element {
           }
         </div>
 
-        <div className="flex-grow flex flex-col items-center justify-center">
-          <h1 className="text-4xl font-bold mb-6 text-black shadow-md">
-            チューリップみくじ
-          </h1>
-          <div className="">
-            <div className="text-center flex flex-col items-center">
-              <img
-                src={`/mikuji/${mikujiItems[currentImageIndex].img}`}
-                alt="Rotating Tulip"
-                width={420}
-                height={420}
-                className="object-cover rounded-lg shadow-md"
-              />
-              <div className="pt-2 text-lg">
-                あなたの運勢
-              </div>
-              <div className="pt-2 text-4xl font-bold">
-                {mikujiItems[currentImageIndex].name}
+        <div className="flex">
+          <div className="flex flex-col items-center justify-center" style={{width: "600px"}}>
+            <h1 className="text-4xl font-bold mb-6 text-black shadow-md">
+              チューリップみくじ
+            </h1>
+            <div className="">
+              <div className="text-center flex flex-col items-center">
+                <img
+                  src={`/mikuji/${mikujiItems[currentImageIndex].img}`}
+                  alt="Rotating Tulip"
+                  width={500}
+                  height={500}
+                  className="object-cover rounded-lg shadow-md"
+                />
+                <div className="pt-2 text-lg">
+                  あなたの運勢
+                </div>
+                <div className="pt-2 text-4xl font-bold">
+                  {mikujiItems[currentImageIndex].name}
+                </div>
               </div>
             </div>
+
           </div>
-          <div className="mt-6">
+
+
+          <div className="mt-60 items-center justify-center">
             {
               omikujiStarted ? (
                 <Button className="rounded-full bg-red-500 text-white font-bold py-3 px-6 text-lg hover:bg-red-500" style={{fontSize: '2.5em', borderRadius: '9999px', height: '120px'}} onClick={handleStop}>ストップ</Button>
@@ -128,7 +133,14 @@ export default function VoteResult(): JSX.Element {
               )
             }
           </div>
+
+
+
         </div>
+
+
+
+
       </main>
     </div>
   );

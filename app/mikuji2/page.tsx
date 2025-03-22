@@ -99,7 +99,7 @@ export default function VoteResult(): JSX.Element {
         </div>
 
         <div className="flex">
-          <div className="flex flex-col items-center justify-center" style={{width: "600px"}}>
+          <div className="flex flex-col items-center justify-center" style={{width: "800px"}}>
             <h1 className="text-4xl font-bold mb-6 text-black shadow-md">
               チューリップみくじ
             </h1>

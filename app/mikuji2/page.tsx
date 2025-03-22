@@ -107,8 +107,8 @@ export default function VoteResult(): JSX.Element {
               <img
                 src={`/mikuji/${mikujiItems[currentImageIndex].img}`}
                 alt="Rotating Tulip"
-                width={300}
-                height={300}
+                width={450}
+                height={450}
                 className="object-cover rounded-lg shadow-md"
               />
               <div className="pt-2 text-lg">

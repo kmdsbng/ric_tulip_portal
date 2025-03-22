@@ -10,7 +10,7 @@ import { Flower2, CheckCircle2, XCircle } from "lucide-react";
 import PortalHeader from "@/components/PortalHeader";
 import React from "react";
 import { getTulipName } from "@/domain/tulip";
-import { mikujiItems } from "../mikuji/page";
+import { mikujiItems } from "@/domain/mikujiItems";
 
 interface VoteCountItem {
   tulip_code: string;

@@ -128,9 +128,9 @@ export default function VoteResult(): JSX.Element {
           <div className="mt-6">
             {
               omikujiStarted ? (
-                <Button className="rounded-full bg-red-500 text-white font-bold py-3 px-6 text-lg hover:bg-red-300" style={{fontSize: '1.5em', borderRadius: '9999px', height: '80px'}} onClick={handleStop}>ストップ</Button>
+                <Button className="rounded-full bg-red-500 text-white font-bold py-3 px-6 text-lg hover:bg-red-300" style={{fontSize: '1.5em', borderRadius: '9999px', height: '80px'}} onTouchStart={handleStop}>ストップ</Button>
               ) : (
-                <Button className="rounded-full bg-green-500 text-white font-bold py-3 px-6 text-lg hover:bg-green-100" style={{fontSize: '1.5em', borderRadius: '9999px', height: '80px'}} onClick={handleStart}>スタート</Button>
+                <Button className="rounded-full bg-green-500 text-white font-bold py-3 px-6 text-lg hover:bg-green-100" style={{fontSize: '1.5em', borderRadius: '9999px', height: '80px'}} onTouchStart={handleStart}>スタート</Button>
               )
             }
           </div>

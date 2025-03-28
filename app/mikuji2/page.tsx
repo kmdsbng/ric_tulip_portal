@@ -127,9 +127,9 @@ export default function VoteResult(): JSX.Element {
           <div className="mt-20 items-center justify-center">
             {
               omikujiStarted ? (
-                <Button className="rounded-full bg-red-500 text-white font-bold py-3 px-6 text-lg hover:bg-red-500" style={{fontSize: '2.5em', borderRadius: '20px', height: '500px'}} ontouchstart={handleStop}>ストップ</Button>
+                <Button className="rounded-full bg-red-500 text-white font-bold py-3 px-6 text-lg hover:bg-red-500" style={{fontSize: '2.5em', borderRadius: '20px', height: '500px'}} onTouchstart={handleStop}>ストップ</Button>
               ) : (
-                <Button className="rounded-full bg-green-500 text-white font-bold py-3 px-6 text-lg hover:bg-green-500" style={{fontSize: '2.5em', borderRadius: '20px', height: '500px'}} ontouchstart={handleStart}>スタート</Button>
+                <Button className="rounded-full bg-green-500 text-white font-bold py-3 px-6 text-lg hover:bg-green-500" style={{fontSize: '2.5em', borderRadius: '20px', height: '500px'}} onTouchstart={handleStart}>スタート</Button>
               )
             }
           </div>

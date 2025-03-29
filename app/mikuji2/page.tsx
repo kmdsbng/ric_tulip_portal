@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,23 +12,12 @@ import React from "react";
 import { getTulipName } from "@/domain/tulip";
 import { mikujiItems } from "@/domain/mikujiItems";
 
-type SpeechRecognitionType  = {
-   lang: string;
-   interimResults: boolean;
-   maxAlternatives: number;
-   onresult: (event: any) => void;
-   onspeechend: () => void;
-   onerror: (event: any) => void;
-   stop: () => void;
-}
 
 export default function VoteResult(): JSX.Element {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
   const [omikujiStarted, setOmikujiStarted] = useState(true);
   const [showWhiteBackground, setShowWhiteBackground] = useState(false);
-  const [transcript, setTranscript] = useState("");
-  const [listening, setListening] = useState(false);
 
   const hasTouchScreen = () => {
     if (typeof window !== "undefined") {
@@ -38,55 +27,7 @@ export default function VoteResult(): JSX.Element {
     }
   };
 
-  const SpeechRecognitionAPI: SpeechRecognitionType | null =
-    typeof window !== "undefined"
-      ? (((window as any).SpeechRecognition || (window as any).webkitSpeechRecognition) as any)
-      : null;
-
-  const recognitionRef = useRef<SpeechRecognitionType | null>(null);
-
   useEffect(() => {
-    if (!SpeechRecognitionAPI) {
-      console.log("Speech Recognition API is not supported in this browser.");
-      return;
-    }
-
-    let recognition: SpeechRecognitionType;
-
-    try {
-      recognition = new (SpeechRecognitionAPI as any)();
-      recognition.lang = "ja-JP";
-      recognition.interimResults = false;
-      recognition.maxAlternatives = 1;
-
-      recognition.onresult = (event: any) => {
-        const result = event.results[0][0].transcript;
-        setTranscript(result);
-        console.log(`Result received: ${result}`);
-        if (result === "スタート") {
-          handleStart();
-        } else if (result === "ストップ") {
-          handleStop();
-        }
-      };
-
-      recognition.onspeechend = () => {
-        console.log("Speech has ended");
-        recognition.stop();
-        setListening(false);
-      };
-
-      recognition.onerror = (event: any) => {
-        console.error(`Speech recognition error detected: ${event.error}`);
-        setListening(false);
-      };
-
-      recognitionRef.current = recognition;
-    } catch (error) {
-      console.error("Error initializing speech recognition:", error);
-      return;
-    }
-
     const id: NodeJS.Timeout = setInterval(() => {
       if (omikujiStarted) {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % mikujiItems.length);
@@ -95,7 +36,7 @@ export default function VoteResult(): JSX.Element {
     setIntervalId(id);
 
     return () => clearInterval(id);
-  }, [omikujiStarted, listening, transcript]);
+  }, [omikujiStarted]);
 
   const handleStop = () => {
     setOmikujiStarted(false);
@@ -214,23 +155,8 @@ export default function VoteResult(): JSX.Element {
               )
             }
           </div>
-          <div>
-            <Button onClick={() => {
-              if (recognitionRef.current) {
-                if (listening) {
-                  recognitionRef.current.stop();
-                  setListening(false);
-                } else {
-                  recognitionRef.current.start();
-                  setListening(true);
-                }
-              }
-            }}>
-              {listening ? "音声認識停止" : "音声認識開始"}
-            </Button>
-            <p>Transcript: {transcript}</p>
-          </div>
         </div>
+
       </main>
     </div>
   );

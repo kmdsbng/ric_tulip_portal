@@ -58,7 +58,7 @@ export default function VoteResult(): JSX.Element {
     setShowWhiteBackground(true);
     setTimeout(() => {
       setShowWhiteBackground(false);
-    }, 500);
+    }, 300);
   };
 
   const handleStart = () => {
@@ -122,6 +122,27 @@ export default function VoteResult(): JSX.Element {
                 <div className="pt-2 text-4xl font-bold">
                   {mikujiItems[currentImageIndex].name}
                 </div>
+
+                {
+                  (!omikujiStarted && mikujiItems[currentImageIndex].supplement != "") ?  (
+                    <div className="relative inline-block">
+                      <motion.div
+                        className="absolute transform translate-x-2/3 -translate-y-1/2 bg-yellow-500 text-white rounded-full px-5 py-2 font-bold"
+                        style={{ width: '300px', right: '-370px', top: '-110px', fontSize: '1.5em', boxShadow: '0 0 10px rgba(0,0,0,0.3), 0 0 20px rgba(0,0,0,0.2), 0 0 30px rgba(0,0,0,0.1)' }}
+                        animate={{
+                          y: [0, 10, 0],
+                        }}
+                        transition={{
+                          duration: 1.0,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        {mikujiItems[currentImageIndex].supplement}
+                      </motion.div>
+                    </div>
+                  ) : null
+                }
               </div>
             </div>
 

@@ -12,35 +12,20 @@ import React from "react";
 import { getTulipName } from "@/domain/tulip";
 import { mikujiItems } from "@/domain/mikujiItems";
 
-interface VoteCountItem {
-  tulip_code: string;
-  vote_count: number;
-}
-
-interface VoteCounts {
-  total: number;
-  items: VoteCountItem[];
-}
-
 
 export default function VoteResult(): JSX.Element {
-  const [voteCounts, setVoteCounts] = useState<VoteCounts>({ total: 0, items: [] });
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
   const [omikujiStarted, setOmikujiStarted] = useState(true);
   const [showWhiteBackground, setShowWhiteBackground] = useState(false);
 
   const hasTouchScreen = () => {
-    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (typeof window !== "undefined") {
+      return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    } else {
+      return navigator.maxTouchPoints > 0;
+    }
   };
-
-  const imageSources = [
-    "izumi100.jpg",
-    "royal100.jpg",
-    "prince100.jpg",
-  ];
 
   useEffect(() => {
     const id: NodeJS.Timeout = setInterval(() => {
@@ -64,8 +49,6 @@ export default function VoteResult(): JSX.Element {
   const handleStart = () => {
     setOmikujiStarted(true);
   };
-
-  const sortedItems = voteCounts.items.slice().sort((a, b) => b.vote_count - a.vote_count);
 
   return (
     <div className="min-h-screen flex flex-col bg-cover bg-center">
@@ -172,13 +155,7 @@ export default function VoteResult(): JSX.Element {
               )
             }
           </div>
-
-
-
         </div>
-
-
-
 
       </main>
     </div>

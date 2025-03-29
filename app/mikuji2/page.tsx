@@ -32,6 +32,10 @@ export default function VoteResult(): JSX.Element {
   const [omikujiStarted, setOmikujiStarted] = useState(true);
   const [showWhiteBackground, setShowWhiteBackground] = useState(false);
 
+  const hasTouchScreen = () => {
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  };
+
   const imageSources = [
     "izumi100.jpg",
     "royal100.jpg",
@@ -127,9 +131,23 @@ export default function VoteResult(): JSX.Element {
           <div className="mt-20 items-center justify-center">
             {
               omikujiStarted ? (
-                <Button className="rounded-full bg-red-500 text-white font-bold py-3 px-6 text-lg hover:bg-red-500" style={{fontSize: '2.5em', borderRadius: '20px', height: '500px'}} onTouchStart={handleStop}>ストップ</Button>
+                <Button
+                  className="rounded-full bg-red-500 text-white font-bold py-3 px-6 text-lg hover:bg-red-500"
+                  style={{fontSize: '2.5em', borderRadius: '20px', height: '500px'}}
+                  onTouchStart={hasTouchScreen() ? handleStop : undefined}
+                  onClick={!hasTouchScreen() ? handleStop : undefined}
+                >
+                  ストップ
+                </Button>
               ) : (
-                <Button className="rounded-full bg-green-500 text-white font-bold py-3 px-6 text-lg hover:bg-green-500" style={{fontSize: '2.5em', borderRadius: '20px', height: '500px'}} onTouchStart={handleStart}>スタート</Button>
+                <Button
+                  className="rounded-full bg-green-500 text-white font-bold py-3 px-6 text-lg hover:bg-green-500"
+                  style={{fontSize: '2.5em', borderRadius: '20px', height: '500px'}}
+                  onTouchStart={hasTouchScreen() ? handleStart : undefined}
+                  onClick={!hasTouchScreen() ? handleStart : undefined}
+                >
+                  スタート
+                </Button>
               )
             }
           </div>

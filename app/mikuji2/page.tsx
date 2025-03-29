@@ -20,7 +20,6 @@ type SpeechRecognitionType  = {
    onspeechend: () => void;
    onerror: (event: any) => void;
    stop: () => void;
-   start: () => void;
 }
 
 export default function VoteResult(): JSX.Element {
